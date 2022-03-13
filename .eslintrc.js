@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    'vue/multi-word-component-names': 0
   }
 }

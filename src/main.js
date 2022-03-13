@@ -4,6 +4,6 @@ import router from './router'
 import store from './store'
 import 'material-design-icons-iconfont'
 
-import './assets/'
+import './assets/styles/style.scss'
 
 createApp(App).use(store).use(router).mount('#app')
