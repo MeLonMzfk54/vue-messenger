@@ -1,9 +1,24 @@
 <template>
-  <div class="user-chat">
-    <vMessage
-
+  <div class='user-chat'>
+    <v-message
+        v-for="message in messages"
+        :key="message.id"
+        :message="message"
     />
-    <div class="input__field"></div>
+    <div class="input__field">
+      <input
+          type="text"
+          class="user-chat__textfield"
+          v-model="textValue"
+          @keypress.enter="sendMessage"
+      >
+      <i
+          class="material-icons"
+          @click="sendMessage"
+      >
+        send
+      </i>
+    </div>
   </div>
 </template>
 
@@ -11,29 +26,32 @@
 import vMessage from './v-message'
 
 export default {
-  name: 'user-chat',
+  name: "user-chat",
   components: {
     vMessage
   },
   props: {
+    user: {
+      type: Object,
+      default: () => {
+      }
+    },
     messages: {
       type: Array,
       default: () => []
-    },
-    user: {
-      type: Object,
-      default: () => {}
     }
   },
   data() {
-    return {}
+    return {
+      textValue: ''
+    }
   },
-  computed: {},
-  methods: {},
+  methods: {
+    sendMessage() {
+    }
+  }
 }
-
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
 </style>

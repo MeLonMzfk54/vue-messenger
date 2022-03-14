@@ -24,6 +24,7 @@ const routes = [
     path: '/chat',
     name: "chat",
     component: userChat,
+    props: true
   },
 ]
 
