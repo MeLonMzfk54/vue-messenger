@@ -5,6 +5,7 @@ import axios from 'axios'
 export default createStore({
   state: {
     contacts: [],
+    chats: [],
     currentUserChat: {}
   },
   getters: {
@@ -20,7 +21,9 @@ export default createStore({
       } else {
         state.currentUserChat = {}
       }
-
+    },
+    SET_CHATS_TO_STORE(state, chats) {
+      state.chats = chats
     }
   },
   actions: {
@@ -32,6 +35,12 @@ export default createStore({
     },
     SET_USER_TO_HEADER({commit}, user) {
       commit('SET_USER_TO_HEAD', user);
+    },
+    FETCH_CHATS({commit}) {
+      return axios.get('http://localhost:3000/chats')
+          .then((chats) => {
+            commit('SET_CHATS_TO_STORE', chats.data)
+          })
     }
   },
   modules: {
